@@ -18,7 +18,7 @@ Correctness-against-the-real-world beats elegance. A simple, beautiful function 
 
 ## Review Philosophy
 
-Treat every mutable variable, every side effect, every class, and every complicated type as guilty until proven innocent.
+Treat every mutable variable, every side effect, every class, and every complicated type as a design decision that must justify itself.
 
 Ask yourself:
 
@@ -131,9 +131,18 @@ Aim to make invalid states difficult or impossible to represent—but not at the
 
 Every discriminated-union `switch` must have an exhaustiveness guard (`default: { const _exhaustive: never = x; return _exhaustive }`). Without it, a later-added variant fails silently — this is the single most valuable modelling check in TypeScript, because it recovers the compile-time totality that the language otherwise lacks.
 
-### Functional, Not Dogmatic — the over-correction guard
+### Error handling — selective Result, not a monad framework
 
-Lean on TypeScript's *native* functional strengths: discriminated unions with exhaustive checks, immutable values, transformation pipelines. But do **not** import a foreign functional language's machinery wholesale. Reject `fp-ts`-style monad stacks, `Either`/`Task` pyramids, and point-free obscurity *when idiomatic TS is clearer*. Error handling specifically: prefer an explicit `Result`/discriminated-union for *expected domain failures*, but do not force every throwing call into a monad — a thrown-and-caught error at a clear boundary is often the idiomatic, readable choice. The grain of TypeScript is "typed unions + values + selective Result," not "Haskell with semicolons." Flag code that fights the language in *either* direction: imperative soup **and** gratuitous category theory.
+(The both-ways "with the grain" rule lives in the governing principle at the top
+of this lens; this section adds only the error-handling specifics it implies.)
+
+Prefer an explicit `Result`/discriminated-union for **expected domain failures**
+— but do not force every throwing call into a monad. A thrown-and-caught error
+at a clear boundary is often the idiomatic, readable TypeScript choice. The grain
+is "typed unions + values + selective Result," not "Haskell with semicolons" and
+not "exceptions-as-control-flow everywhere." Flag both `fp-ts`-style monad
+pyramids where a plain `Result` or a throw would read better, **and**
+unprincipled throw/catch where an expected failure deserves to be a value.
 
 ### State
 
