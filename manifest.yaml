@@ -1,0 +1,49 @@
+manifestVersion: 1
+name: '@atalanta/ts-review-lenses'
+version: 2026.06.28.1
+description: |
+  Three adversarial TypeScript code-review prompts ("lenses") for an independent
+  reviewer in a @swamp/software-factory run. Distilled from failure modes that
+  escaped green test suites during real development.
+
+  - Lens A (taste) — functional simplicity, composition, idiomatic TS, no
+    transliteration from another language.
+  - Lens B (correctness vs reality) — boundary validation, fixtures grounded in
+    the real wire, secret hygiene, subprocess/IO correctness.
+  - Lens C (architecture) — module boundaries, the purity seam, dependency
+    direction, verified change confinement.
+
+  Run as three separate passes (TASTE-/CORR-/ARCH- finding id prefixes keep them
+  distinct). The lens files are transport-neutral review prose; the swamp +
+  findings-JSON contract is appended at run time.
+
+  ## Use
+
+  Pull this extension, then feed a lens as the `prompt` input to
+  @atalanta/external-reviewer's external-review-findings workflow (optional
+  companion — not a hard dependency), one invocation per lens. The bundled
+  ts-review-lenses skill prints the exact wiring. A factory wanting same-context
+  review instead uses the lenses as dispatch-stage systemPrompts.
+
+  ```
+  swamp extension pull @atalanta/ts-review-lenses
+  # then invoke the bundled `ts-review-lenses` skill
+  ```
+repository: 'https://github.com/Atalanta/swamp-ts-review-lenses'
+models: []
+workflows: []
+vaults: []
+drivers: []
+datastores: []
+reports: []
+skills:
+  - ts-review-lenses
+additionalFiles:
+  - README.md
+  - LICENSE.txt
+labels:
+  - software-factory
+  - adversarial-review
+  - code-review
+  - typescript
+dependencies: []
