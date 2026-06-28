@@ -10,7 +10,7 @@ development.
 
 | Lens | Obsession | Finding ids |
 | --- | --- | --- |
-| **A — Functional taste** | Simplicity, composition, idiomatic TS, no transliteration from another language | `TASTE-` |
+| **A — Idiomatic taste** | Idiomatic with-the-grain TS, domain-types-first, no transliteration, no paradigm zealotry | `TASTE-` |
 | **B — Correctness vs reality** | Boundary validation, fixtures grounded in the real wire, secret hygiene, subprocess/IO correctness | `CORR-` |
 | **C — Architecture** | Module boundaries, the purity seam, dependency direction, verified change confinement | `ARCH-` |
 
