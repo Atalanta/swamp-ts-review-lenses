@@ -46,7 +46,7 @@ gate evaluates them:
 
 | Lens | File | Prefix |
 | --- | --- | --- |
-| A — Functional taste | `lens-a-functional-taste.md` | `TASTE-` |
+| A — Idiomatic taste | `lens-a-functional-taste.md` | `TASTE-` |
 | B — Correctness vs reality | `lens-b-correctness.md` | `CORR-` |
 | C — Architecture | `lens-c-architecture.md` | `ARCH-` |
 
