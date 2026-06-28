@@ -10,11 +10,11 @@ development.
 
 | Lens | Obsession | Finding ids |
 | --- | --- | --- |
-| **A — Idiomatic taste** | Idiomatic with-the-grain TS, domain-types-first, no transliteration, no paradigm zealotry | `TASTE-` |
+| **A — Idiom** | Idiomatic with-the-grain TS, domain-types-first, no transliteration, no paradigm zealotry | `IDIOM-` |
 | **B — Correctness vs reality** | Boundary validation, fixtures grounded in the real wire, secret hygiene, subprocess/IO correctness | `CORR-` |
 | **C — Architecture** | Module boundaries, the purity seam, dependency direction, verified change confinement | `ARCH-` |
 
-**Ranking when lenses conflict:** correctness-against-reality (B) beats taste (A).
+**Ranking when lenses conflict:** correctness-against-reality (B) beats idiom (A).
 
 ## What this ships
 
@@ -22,7 +22,7 @@ A single `ts-review-lenses` **skill** bundle:
 
 | File | What it is |
 | --- | --- |
-| `references/lens-a-idiomatic-taste.md` | Lens A review prose (transport-neutral) |
+| `references/lens-a-idiom.md` | Lens A review prose (transport-neutral) |
 | `references/lens-b-correctness.md` | Lens B review prose |
 | `references/lens-c-architecture.md` | Lens C review prose |
 | `references/using-with-external-reviewer.md` | The machine-facing contract (read from swamp, emit findings JSON, id prefixes, re-review) appended to a lens at run time |
@@ -56,7 +56,7 @@ swamp workflow run @atalanta/external-reviewer/external-review-findings \
 
 Then query the reviewer's invocation for `attributes.parsedResponse` and record
 the findings on the factory via `resolve_findings`. Repeat for lenses A and C.
-The `TASTE-`/`CORR-`/`ARCH-` prefixes keep the three passes non-colliding.
+The `IDIOM-`/`CORR-`/`ARCH-` prefixes keep the three passes non-colliding.
 
 ### Fallback path — same-context dispatch
 

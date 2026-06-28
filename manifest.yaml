@@ -1,19 +1,19 @@
 manifestVersion: 1
 name: '@atalanta/ts-review-lenses'
-version: 2026.06.28.3
+version: 2026.06.28.4
 description: |
   Three adversarial TypeScript code-review prompts ("lenses") for an independent
   reviewer in a @swamp/software-factory run. Distilled from failure modes that
   escaped green test suites during real development.
 
-  - Lens A (taste) — functional simplicity, composition, idiomatic TS, no
-    transliteration from another language.
+  - Lens A (idiom) — idiomatic, with-the-grain TypeScript; domain-types-first;
+    no transliteration from another language; no paradigm zealotry.
   - Lens B (correctness vs reality) — boundary validation, fixtures grounded in
     the real wire, secret hygiene, subprocess/IO correctness.
   - Lens C (architecture) — module boundaries, the purity seam, dependency
     direction, verified change confinement.
 
-  Run as three separate passes (TASTE-/CORR-/ARCH- finding id prefixes keep them
+  Run as three separate passes (IDIOM-/CORR-/ARCH- finding id prefixes keep them
   distinct). The lens files are transport-neutral review prose; the swamp +
   findings-JSON contract is appended at run time.
 

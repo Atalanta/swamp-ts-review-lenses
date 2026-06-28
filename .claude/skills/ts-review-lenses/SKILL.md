@@ -1,7 +1,7 @@
 ---
 name: ts-review-lenses
 description: >-
-  Wire and run three adversarial TypeScript review lenses — taste (idiomatic
+  Wire and run three adversarial TypeScript review lenses — idiom (idiomatic
   with-the-grain TypeScript, domain-types-first), correctness-vs-reality
   (boundary validation, grounded tests,
   secret hygiene), architecture (boundaries, purity seam, dependency direction)
@@ -17,21 +17,21 @@ description: >-
 
 Three adversarial code-review prompts, distilled from failure modes that escape
 *green* test suites. Run them as **three separate passes** — one reviewer per
-lens — so taste, correctness, and architecture concerns don't dilute each other.
+lens — so idiom, correctness, and architecture concerns don't dilute each other.
 
 | Lens | File | Obsession | Finding id prefix |
 | --- | --- | --- | --- |
-| A — Idiomatic taste | `references/lens-a-idiomatic-taste.md` | Idiomatic with-the-grain TS, domain-types-first, no transliteration, no paradigm zealotry | `TASTE-` |
+| A — Idiom | `references/lens-a-idiom.md` | Idiomatic with-the-grain TS, domain-types-first, no transliteration, no paradigm zealotry | `IDIOM-` |
 | B — Correctness vs reality | `references/lens-b-correctness.md` | Boundary validation, grounded tests, secret hygiene, IO correctness | `CORR-` |
 | C — Architecture | `references/lens-c-architecture.md` | Module boundaries, purity seam, dependency direction, change confinement | `ARCH-` |
 
 A complete reviewer prompt is **one lens file + `references/contract-block.md`**
 (the swamp/findings contract). The lens prose is transport-neutral; the contract
 is what makes the output a recordable factory artifact. When two lenses conflict,
-**correctness (B) outranks taste (A)**.
+**correctness (B) outranks idiom (A)**.
 
 Pick lenses by stage: `code-review` → all three; `plan-review` → C, optionally A
-(taste/correctness need real code to bite).
+(idiom/correctness need real code to bite).
 
 ## When you are authoring a factory (set the review stages up for the lenses)
 
@@ -47,7 +47,7 @@ Author checklist:
 - [ ] code-review uses lenses A+B+C; plan-review uses C (+A)
 - [ ] Decide the transport: external reviewer (default) or dispatch fallback
 - [ ] Note in the stage description that findings come from N per-lens passes
-      with prefixes TASTE-/CORR-/ARCH-
+      with prefixes IDIOM-/CORR-/ARCH-
 - [ ] swamp model method run <factory> validate  → passes
 ```
 
@@ -69,7 +69,7 @@ reads the right datastore.
 Drive checklist (repeat the invoke+record for each chosen lens):
 - [ ] record_dispatch on the factory stage (per the software-factory drive loop)
 - [ ] Lens B (CORR-):   invoke → query invocation → resolve_findings
-- [ ] Lens A (TASTE-):  invoke → query invocation → resolve_findings
+- [ ] Lens A (IDIOM-):  invoke → query invocation → resolve_findings
 - [ ] Lens C (ARCH-):   invoke → query invocation → resolve_findings
 - [ ] Re-check factory status; advance when findings-clear passes
 ```
@@ -100,7 +100,7 @@ swamp data query 'modelName == "external-reviewer" && specName == "invocation" \
 
 **Step 3 — record on the factory.** Pass the returned findings to the factory's
 `resolve_findings` (or `record_artifact` for the first recording). The
-`TASTE-`/`CORR-`/`ARCH-` prefixes keep the three passes' ids from colliding when
+`IDIOM-`/`CORR-`/`ARCH-` prefixes keep the three passes' ids from colliding when
 the `findings-clear` gate evaluates them.
 
 **Step 4 — repeat** for the remaining lenses, then advance the factory once
@@ -123,7 +123,7 @@ are available.
 
 ## References
 
-- [references/lens-a-idiomatic-taste.md](references/lens-a-idiomatic-taste.md) — Lens A prompt
+- [references/lens-a-idiom.md](references/lens-a-idiom.md) — Lens A prompt
 - [references/lens-b-correctness.md](references/lens-b-correctness.md) — Lens B prompt
 - [references/lens-c-architecture.md](references/lens-c-architecture.md) — Lens C prompt
 - [references/contract-block.md](references/contract-block.md) — paste-clean swamp/findings contract appended to a lens at run time

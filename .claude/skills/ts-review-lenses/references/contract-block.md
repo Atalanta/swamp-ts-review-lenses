@@ -25,7 +25,7 @@ catch. Anchor on the change, then **widen your view to the scope your lens needs
 by reading the real source files in the working directory (you have the
 filesystem — use it):
 
-- **Taste lens (`TASTE-`):** read each **changed file in full**, not just the
+- **Idiom lens (`IDIOM-`):** read each **changed file in full**, not just the
   hunks — you cannot judge a function from a fragment.
 - **Correctness lens (`CORR-`):** changed files in full, **plus the boundary
   modules they touch** — where external data enters, the validators/parsers
@@ -84,7 +84,7 @@ anything else.** The output must be a single JSON object matching the factory's
 
 - `severity` is **exactly one of** `critical | high | medium | low`. There is no
   `info` — record informational observations as `low`.
-- `id` uses this lens's stable prefix and a counter (`TASTE-`, `CORR-`, or
+- `id` uses this lens's stable prefix and a counter (`IDIOM-`, `CORR-`, or
   `ARCH-`): e.g. `CORR-1`, `CORR-2`. Stable ids let the factory and humans track
   a finding across rework cycles. Do **not** renumber existing findings on a
   re-review.
