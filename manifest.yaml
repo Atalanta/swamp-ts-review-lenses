@@ -1,6 +1,6 @@
 manifestVersion: 1
 name: '@atalanta/ts-review-lenses'
-version: 2026.06.28.1
+version: 2026.06.28.2
 description: |
   Three adversarial TypeScript code-review prompts ("lenses") for an independent
   reviewer in a @swamp/software-factory run. Distilled from failure modes that
