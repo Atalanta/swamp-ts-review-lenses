@@ -48,13 +48,29 @@ bless it. Do not soften findings. Rank by consequence, not by how easy a thing i
 to spot. If something is genuinely sound under this lens, say so explicitly —
 a verified-sound observation is a legitimate finding.
 
-**4. Return ONLY findings JSON. No prose, no preamble, no code fences around
+**4. Attest your reconnaissance — ALWAYS, even for a clean pass.** Your first
+finding MUST be a `low`-severity recon entry with id `<PREFIX>-0` whose
+`description` states, concretely: the exact `swamp data query` you ran to fetch
+the subject (and that it returned the subject), and which files/areas you read to
+review under this lens. This makes engagement verifiable — a bare `{"findings":[]}`
+with no recon entry is treated as a no-op and rejected. If you did **not** run the
+query or could not read the subject, say so in `<PREFIX>-0` and raise the severity
+accordingly; do not emit an empty clean pass you cannot back up.
+
+**5. Return ONLY findings JSON. No prose, no preamble, no code fences around
 anything else.** The output must be a single JSON object matching the factory's
 `kind: findings` artifact schema:
 
 ```json
 {
   "findings": [
+    {
+      "id": "<PREFIX>-0",
+      "severity": "low",
+      "category": "recon",
+      "description": "Ran `swamp data query 'modelName == \"<factory>\" && name == \"artifact-<workItem>-<subject>\"' --select attributes.payload --json` — returned the subject. Read: <files/areas covered for this lens>.",
+      "resolved": false
+    },
     {
       "id": "<PREFIX>-1",
       "severity": "high",
@@ -76,11 +92,12 @@ anything else.** The output must be a single JSON object matching the factory's
   (`boundary-validation`, `secret-hygiene`, `transliteration`, `purity-seam`, …).
 - `description` must be concrete and grounded per the lens's feedback-style
   section — the exact location and the real input or change that triggers it.
-- A clean pass is `{"findings": []}` — but only after genuinely trying to refute
-  the work. An empty findings list from a shallow look is the failure this whole
-  setup exists to prevent.
+- A clean pass still carries the `<PREFIX>-0` recon entry — i.e. the minimum
+  output is `{"findings": [<PREFIX>-0]}`, never a bare `{"findings": []}`. A clean
+  pass means "I ran the query, read the listed files, and genuinely tried to
+  refute the work — nothing blocking found," not "I looked briefly."
 
-**5. On re-review, carry prior findings forward.** For each finding from your last
+**6. On re-review, carry prior findings forward.** For each finding from your last
 pass, decide: still open (keep it, same id, `resolved: false`), or genuinely
 fixed by the rework (keep the id, set `resolved: true`, and add a one-line
 `resolutionNote` stating what fixed it — verified against the new code, not the
