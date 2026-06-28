@@ -21,7 +21,7 @@ lens — so taste, correctness, and architecture concerns don't dilute each othe
 
 | Lens | File | Obsession | Finding id prefix |
 | --- | --- | --- | --- |
-| A — Idiomatic taste | `references/lens-a-functional-taste.md` | Idiomatic with-the-grain TS, domain-types-first, no transliteration, no paradigm zealotry | `TASTE-` |
+| A — Idiomatic taste | `references/lens-a-idiomatic-taste.md` | Idiomatic with-the-grain TS, domain-types-first, no transliteration, no paradigm zealotry | `TASTE-` |
 | B — Correctness vs reality | `references/lens-b-correctness.md` | Boundary validation, grounded tests, secret hygiene, IO correctness | `CORR-` |
 | C — Architecture | `references/lens-c-architecture.md` | Module boundaries, purity seam, dependency direction, change confinement | `ARCH-` |
 
@@ -123,7 +123,7 @@ are available.
 
 ## References
 
-- [references/lens-a-functional-taste.md](references/lens-a-functional-taste.md) — Lens A prompt
+- [references/lens-a-idiomatic-taste.md](references/lens-a-idiomatic-taste.md) — Lens A prompt
 - [references/lens-b-correctness.md](references/lens-b-correctness.md) — Lens B prompt
 - [references/lens-c-architecture.md](references/lens-c-architecture.md) — Lens C prompt
 - [references/contract-block.md](references/contract-block.md) — paste-clean swamp/findings contract appended to a lens at run time

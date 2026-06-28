@@ -22,7 +22,7 @@ A single `ts-review-lenses` **skill** bundle:
 
 | File | What it is |
 | --- | --- |
-| `references/lens-a-functional-taste.md` | Lens A review prose (transport-neutral) |
+| `references/lens-a-idiomatic-taste.md` | Lens A review prose (transport-neutral) |
 | `references/lens-b-correctness.md` | Lens B review prose |
 | `references/lens-c-architecture.md` | Lens C review prose |
 | `references/using-with-external-reviewer.md` | The machine-facing contract (read from swamp, emit findings JSON, id prefixes, re-review) appended to a lens at run time |

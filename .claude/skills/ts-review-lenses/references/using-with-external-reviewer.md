@@ -12,7 +12,7 @@ so the two never diverge.
 complete prompt  =  <one lens file>  +  contract-block.md
 ```
 
-- **Lens file** (`lens-a-functional-taste.md`, `lens-b-correctness.md`, or
+- **Lens file** (`lens-a-idiomatic-taste.md`, `lens-b-correctness.md`, or
   `lens-c-architecture.md`) — transport-neutral review *prose*: the adversarial
   stance and what to hunt for. It deliberately says nothing about swamp, findings
   JSON, or id prefixes, so the same prose serves both external review and
@@ -46,7 +46,7 @@ gate evaluates them:
 
 | Lens | File | Prefix |
 | --- | --- | --- |
-| A — Idiomatic taste | `lens-a-functional-taste.md` | `TASTE-` |
+| A — Idiomatic taste | `lens-a-idiomatic-taste.md` | `TASTE-` |
 | B — Correctness vs reality | `lens-b-correctness.md` | `CORR-` |
 | C — Architecture | `lens-c-architecture.md` | `ARCH-` |
 
